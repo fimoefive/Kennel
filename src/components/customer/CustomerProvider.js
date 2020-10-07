@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react"
+import React, { useState, createContext } from "react";
 
 /*
     The context is imported and used by individual components
