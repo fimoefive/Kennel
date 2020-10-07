@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { AnimalContext } from "./AnimalProvider";
 import { AnimalCard } from "./AnimalCard";
 import "./Animal.css";
+import { useHistory } from "react-router-dom";
 
 export const AnimalList = () => {
    // This state changes when `getAnimals()` is invoked below
@@ -14,7 +15,7 @@ export const AnimalList = () => {
 		
     }, [])
 
-
+    const history = useHistory()
     return (
       <>
 

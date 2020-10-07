@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Home = () => (
+export const Home = (props) => (
     <>
         <h2>Nashville Kennels</h2>
         <small>{props.greeting},Loving care when you're not there.</small>
@@ -10,4 +10,4 @@ export const Home = () => (
             <div>500 Puppy Way</div>
         </address>
     </>
-)
+);
