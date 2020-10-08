@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { AnimalContext } from "./AnimalProvider"
 import "./Animal.css"
-import { useParams, useHistory } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom";
 
 export const AnimalDetail = () => {
     const { releaseAnimal, getAnimalById } = useContext(AnimalContext)
@@ -29,21 +29,17 @@ export const AnimalDetail = () => {
             <div className="animal__breed">{animal.breed}</div>
 			<div className="animal__location">Location: {location.name}</div>
 			<div className="animal__owner">Customer: {customer.name}</div>
-        </section>
-    )
-}
+            <button onClick={ () => {
 
-// Update this line of code to include releaseAnimal
-const { animals, getAnimals, releaseAnimal } = useContext(AnimalContext)
-
-
-
-
-<button onClick={
-    () => {
         releaseAnimal(animal.id)
             .then(() => {
                 history.push("/animals")
             })
     }}>Release Animal
 </button>
+        </section>
+    )
+}
+
+// Update this line of code to include releaseAnimal
+const { animals, getAnimals, releaseAnimal } = useContext(AnimalContext)
