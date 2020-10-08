@@ -5,48 +5,31 @@ import "./Animal.css";
 import { useHistory } from "react-router-dom";
 
 export const AnimalList = () => {
-   // This state changes when `getAnimals()` is invoked below
-    const { animals, getAnimals } = useContext(AnimalContext)
-	
-	//useEffect - reach out to the world for something
-    useEffect(() => {
-		console.log("AnimalList: useEffect - getAnimals")
-		getAnimals()
-		
-    }, [])
+  // This state changes when `getAnimals()` is invoked below
+  const { animals, getAnimals } = useContext(AnimalContext)
 
-    const history = useHistory()
-    return (
-      <>
+  //useEffect - reach out to the world for something
+  useEffect(() => {
+    console.log("AnimalList: useEffect - getAnimals")
+    getAnimals()
 
-    <h2>Animals</h2>
-		<button onClick={() => {history.push("/animals/create")}}>
-            Add Animal
-        </button>
+  }, [])
 
-		<div className="animals">
-		    {console.log("AnimalList: Render")}
+  const history = useHistory()
+  return (
+    <>
+      <h2>Animals</h2>
+      <button onClick={() => { history.push("/animals/create")}}>
+        Add Animal
+    </button>
+      <div className="animals">
+        {console.log("AnimalList: Render")}
         {
-			animals.map(animal => {
-				return <AnimalCard key={animal.id} location={animal.location.name} animal={animal} />
-			  })
+          animals.map(animal => {
+            return <AnimalCard key={animal.id} animal={animal} />
+          })
         }
-        </div>
-      </>
-    )
+      </div>
+    </>
+  )
 };
-
-// return (	
-//   <div className="animals">
-//     {console.log("AnimalList: Render")}
-//     <h2>Animals</h2>
-//     <button onClick={() => {history.push("/animals/create")}}>
-//           Add Animal
-//         </button>
-//           {
-//     animals.map(animal => {
-//       return <AnimalCard key={animal.id} animal={animal} />
-//     })
-//           }
-//       </div>
-//   )

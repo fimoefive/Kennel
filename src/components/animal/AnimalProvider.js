@@ -50,4 +50,4 @@ export const AnimalProvider = (props) => {
             {props.children}
         </AnimalContext.Provider>
     )
-}
+};
