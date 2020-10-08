@@ -17,19 +17,17 @@ export const AnimalList = () => {
 
   const history = useHistory()
   return (
-    <>
+    <div className="animals">
+      {console.log("AnimalList: Render")}
       <h2>Animals</h2>
-      <button onClick={() => { history.push("/animals/create")}}>
+      <button onClick={() => { history.push("/animals/create") }}>
         Add Animal
-    </button>
-      <div className="animals">
-        {console.log("AnimalList: Render")}
-        {
-          animals.map(animal => {
-            return <AnimalCard key={animal.id} animal={animal} />
-          })
-        }
-      </div>
-    </>
+      </button>
+      {
+        animals.map(animal => {
+          return <AnimalCard key={animal.id} animal={animal} />
+        })
+      }
+    </div>
   )
 };
