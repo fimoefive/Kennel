@@ -4,8 +4,8 @@ import "./Animal.css"
 import { useParams, useHistory } from "react-router-dom";
 
 export const AnimalDetail = () => {
-   
-const { animals, getAnimals, releaseAnimal } = useContext(AnimalContext)
+
+    const { animals, getAnimals, releaseAnimal } = useContext(AnimalContext)
 
     const [animal, setAnimal] = useState({})
     const [location, setLocation] = useState({})
@@ -31,12 +31,18 @@ const { animals, getAnimals, releaseAnimal } = useContext(AnimalContext)
             <div className="animal__location">Location: {location.name}</div>
             <div className="animal__owner">Customer: {customer.name}</div>
 
-        <button onClick={() => {
-            releaseAnimal(animal.id)
-            .then(() => {
-                history.push("/animals")
-            })
-            }}>Release Animal
-        </button>
-    </section>
-    )};
+            <button onClick={() => {
+                releaseAnimal(animal.id)
+                    .then(() => {
+                        history.push("/animals")
+                    })
+                }}>Release Animal
+            </button>
+
+            <button onClick={() => {
+                history.push(`/animals/edit/${animal.id}`)
+                }}>Edit
+            </button>
+        </section>
+    )
+};
