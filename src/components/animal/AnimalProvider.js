@@ -5,7 +5,8 @@ import React, { useState, createContext } from "react";
     that need data
 */
 export const AnimalContext = createContext()
-
+export const [ animals, setAnimals ] = useState([])
+const [ searchTerms, setSearchTerms ] = useState("")
 /*
  This component establishes what data can be used.
  */
